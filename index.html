@@ -22,7 +22,7 @@
             <small id="today" class="text-white pb-3"></small>
             <h3 class="text-white" id="city"></h3>
             <div>
-                <img id="icon" src="./icons/unknown.svg">
+                <img id="icon" src="./icons/unknown.svg" alt="Imagem não encontrada">
                 <h1 class="text-white" id="temperature"></h1>
             </div>
             <h6 class="text-white" style="text-transform: capitalize;" id="weather"></h6>
@@ -35,14 +35,14 @@
         <div class="content-card space-around align-center">
             <div>
                 <div class="align-center">
-                    <img src="icons/warmer.svg" alt="Temperatura máxima">
+                    <img class="img-icon" src="icons/warmer.svg" alt="Temperatura máxima">
                     <span>Max</span>
                 </div>
                 <h3 id="temp-max"></h3>
             </div>
             <div>
             <div class="align-center">
-                <img src="icons/colder.svg" alt="Temperatura miníma">
+                <img class="img-icon" src="icons/colder.svg" alt="Temperatura miníma">
                 <span>Min</span>
             </div>
                 <h3 id="temp-min"></h3>
@@ -52,7 +52,7 @@
     <div id="sun" class="card">
             <h6>Nascer do sol</h6>
         <div class="content-card flex-column flex-center">
-            <img src="./icons/sunrise.svg" alt="Nascer do sol">
+            <img class="img-icon" src="./icons/sunrise.svg" alt="Nascer do sol">
             <h3 class="text-white pb-3 text-center" id="sunrise"></h3>
         </div>
     </div>
@@ -60,7 +60,7 @@
     <div id="sun-down" class="card">
             <h6>Pôr do sol</h6>
         <div class="content-card flex-column flex-center">
-            <img src="./icons/sunset.svg" alt="Pôr do sol">
+            <img class="img-icon" src="./icons/sunset.svg" alt="Pôr do sol">
             <h3 class="text-white pb-3 text-center" id="sunset"></h3>
         </div>
     </div>
@@ -68,13 +68,15 @@
     <div id="week" class="card">
             <h6>Próximos dias</h6>
         <div class="content-card">
+            <ul id="list-days" class="d-flex flex-column">
 
+            </ul>
         </div>
     </div>
     <div id="wind" class="card">
         <h6>Vento</h6>
         <div class="content-card flex-column align-center flex-center">
-            <img src="./icons/wind.svg" alt="Vento">
+            <img class="img-icon" src="./icons/wind.svg" alt="Vento">
             <h3 class="text-white pb-3" id="wind-speed"></h3>
         </div>
     </div>
@@ -95,7 +97,7 @@
     <div id="humidity-card" class="card">
             <h6>Umidade</h6>
         <div class="content-card flex-column align-center flex-center">
-            <img src="./icons/humidity.svg" alt="Umidade do ar">
+            <img class="img-icon" src="./icons/humidity.svg" alt="Umidade do ar">
             <h3 class="text-white pb-3" id="humidity"></h3>
         </div>
     </div>

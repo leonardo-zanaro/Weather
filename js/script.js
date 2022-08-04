@@ -18,7 +18,8 @@ const listForecast = document.querySelector("#list-forecast");
 const tempMax = document.querySelector("#temp-max");
 const tempMin = document.querySelector("#temp-min");
 const humidity = document.querySelector("#humidity");
-const uv = document.querySelector("#uv");
+const tomorrow = document.querySelector("#list-days");
+
 
 navigator.geolocation.watchPosition(success, denied);
 
@@ -44,7 +45,7 @@ function success(data)
     lon = data.coords.longitude;
     lat = data.coords.latitude;
     let url = `${api.url}forecast?lat=${lat}&lon=${lon}&appid=${api.key}&lang=${api.region}&units=metric`;
-    const result = fetch(url).then(response => {
+    fetch(url).then(response => {
         if(!response.ok)
             throw new Error(`Ocorreu um erro ao acessar a API, Status code: ${response.status}`)
         return response.json();
@@ -66,9 +67,9 @@ function showResults(data)
     let firstDay = (new Date(data.list[0].dt * 1000));
     dayComplete.innerText = `${dateBuilder(firstDay)}`;
     city.innerText =  `${data.city.name}`;
-    temp.innerText = `${Math.round(data.list[0].main.temp)}℃`;
-    tempMax.innerText = `${Math.round(data.list[0].main.temp_max)}℃`;
-    tempMin.innerText = `${Math.round(data.list[0].main.temp_min)}℃`;
+    temp.innerText = `${Math.round(data.list[0].main.temp)}`;
+    tempMax.innerText = `${Math.round(data.list[0].main.temp_max)}`;
+    tempMin.innerText = `${Math.round(data.list[0].main.temp_min)}`;
     weather.innerText = `${data.list[0].weather[0].description}`;
     humidity.innerText = `${data.list[0].main.humidity}%`;
 
@@ -80,21 +81,20 @@ function showResults(data)
 
     windSpeed.innerText = `${data.list[0].wind.speed} km/h`;
 
-    let itens = listForecast.querySelector("#list-forecast li");
-
     for (let i = 0; i < 8; i++)
     {
         let item = `
         <li class="list-item">
             <div>
                 <small>${new Date(data.list[i].dt * 1000).toLocaleTimeString()}</small>
-                <img src="./icons/${data.list[i].weather[0].icon}.svg">
-                <h4>${Math.round(data.list[i].main.temp)}℃</h4>
+                <img src="./icons/${data.list[i].weather[0].icon}.svg" alt="icone-tempo">
+                <h4>${Math.round(data.list[i].main.temp)}</h4>
             </div>
         </li>
         `
         listForecast.insertAdjacentHTML('beforeend', item);
     }
+
 
 
     let yesterday = new Date(firstDay.setDate(firstDay.getDate() - 1));
