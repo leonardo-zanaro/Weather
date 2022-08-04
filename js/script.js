@@ -67,10 +67,10 @@ function showResults(data)
     let firstDay = (new Date(data.list[0].dt * 1000));
     dayComplete.innerText = `${dateBuilder(firstDay)}`;
     city.innerText =  `${data.city.name}`;
-    temp.innerText = `${Math.round(data.list[0].main.temp)}`;
-    tempMax.innerText = `${Math.round(data.list[0].main.temp_max)}`;
-    tempMin.innerText = `${Math.round(data.list[0].main.temp_min)}`;
-    weather.innerText = `${data.list[0].weather[0].description}`;
+    temp.innerText = `${Math.round(data.list[0].main.temp)}°C`;
+    tempMax.innerText = `${Math.round(data.list[0].main.temp_max)}°C`;
+    tempMin.innerText = `${Math.round(data.list[0].main.temp_min)}°C`;
+    weather.innerText = `${data.list[0].weather[0].description}°C`;
     humidity.innerText = `${data.list[0].main.humidity}%`;
 
     sunrise.innerText = new Date(data.city.sunrise * 1000).toLocaleTimeString();
@@ -88,7 +88,7 @@ function showResults(data)
             <div>
                 <small>${new Date(data.list[i].dt * 1000).toLocaleTimeString()}</small>
                 <img src="./icons/${data.list[i].weather[0].icon}.svg" alt="icone-tempo">
-                <h4>${Math.round(data.list[i].main.temp)}</h4>
+                <h4>${Math.round(data.list[i].main.temp)}°C</h4>
             </div>
         </li>
         `
