@@ -283,7 +283,7 @@ img {
     }
 }
 
-@media (min-width: 360px) and (max-width: 799px) {
+@media (min-width: 240px) and (max-width: 799px) {
     #min-max .content-card {
         display: flex;
         flex-direction: column;
